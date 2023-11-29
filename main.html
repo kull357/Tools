@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+button {
+    padding: 30px 60px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #D2386C;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
+      background-color: #D2691E;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tools Home</h1>
+        <div class="button-container">
+            <button onclick="redirectToIndex()">Text Compare Tool</button>
+            <button onclick="redirectToIndex2()">CSV Tool</button>
+        </div>
+    </div>
+    <script>
+    function redirectToIndex() {
+        window.location.href = "index.html";
+    }
+    
+    function redirectToIndex2() {
+        window.location.href = "index2.html";
+    }
+    </script>
+</body>
+
+</html>

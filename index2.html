@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Line to CSV Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #app {
+      max-width: 800px;
+      width: 100%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    textarea {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 10px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #6C244C;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto; /* Center-align the button */
+    }
+
+    button:hover {
+      background-color: #D2691E;
+    }
+
+    #outputCSV {
+      margin-top: 10px;
+      text-align: left; /* Align the output text to the left */
+    }
+
+    #copyButton {
+      background-color: #008CBA;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: none; /* Initially hide the copy button */
+      margin: 10px auto 0; /* Center-align the copy button */
+    }
+
+    #copyButton:hover {
+      background-color: #00568D;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <textarea id="inputText" placeholder="Enter Text to make it Comma Separated"></textarea>
+    <button onclick="convertToCSV()">Convert to CSV</button>
+    <h3>Output:</h3>
+    <p id="outputCSV"></p>
+    <button id="copyButton" onclick="copyToClipboard()">Copy</button>
+  </div>
+
+  <script>
+    function convertToCSV() {
+      const inputText = document.getElementById('inputText').value;
+      const lines = inputText.split('\n').map(line => line.trim());
+
+      // Remove empty lines
+      const nonEmptyLines = lines.filter(line => line !== '');
+
+      // Check if there are lines to convert
+      if (nonEmptyLines.length > 0) {
+        const csvText = nonEmptyLines.join(', ');
+        document.getElementById('outputCSV').innerText = csvText;
+        toggleCopyButton(true);
+      } else {
+        document.getElementById('outputCSV').innerText = 'No valid lines found.';
+        toggleCopyButton(false);
+      }
+    }
+
+    function copyToClipboard() {
+      const outputText = document.getElementById('outputCSV');
+      const textArea = document.createElement("textarea");
+      textArea.value = outputText.innerText;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      alert("Copied to clipboard!");
+    }
+
+    function toggleCopyButton(show) {
+      const copyButton = document.getElementById('copyButton');
+      copyButton.style.display = show ? 'block' : 'none';
+    }
+  </script>
+
+</body>
+
+</html>

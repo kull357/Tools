@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Text Comparison</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <p class="main-heading mx-auto">Text Compare Tool</p>
+    </div>
+</nav>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <h5>Source Text</h5>
+                <textarea id="text1" class="form-control" rows="6"></textarea>
+                <p class="word-count" id="wordCount1">Word Count: 0</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <h5>Comparison Text</h5>
+                <textarea id="text2" class="form-control" rows="6"></textarea>
+                <p class="word-count" id="wordCount2">Word Count: 0</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button id="compareBtn" class="btn btn-primary mt-3 btn-block">Compare</button>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <h5 id="a" class="result-title" style="display: none;">Non-Matching words from Source Text</h5>
+            <div id="nonMatching1" class="result-box"></div>
+            <p class="non-matching-count" id="nonMatchingCount1"></p>
+        </div> 
+        <div class="col-md-6">
+            <h5 id="b" class="result-title" style="display: none;">Non-Matching words from Comparison Text</h5>
+            <div id="nonMatching2" class="result-box"></div>
+            <p class="non-matching-count" id="nonMatchingCount2"></p>
+        </div>
+    </div>
+</div>
+<div id="matchingMessage" class="matching-message col-md-12" style="display: none;">
+    <p>Both the values are matching.</p>
+</div>
+<script src="myscript.js"></script>
+</body>
+</html>
