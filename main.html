@@ -1,68 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
-    <style>
-        body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    text-align: center;
-}
-
-h1 {
-    color: #333;
-}
-
-.button-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 50px;
-}
-
-button {
-    padding: 30px 60px;
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #D2386C;
-    color: white;
-    border: none;
-    border-radius: 10px;
-}
-
-button:hover {
-      background-color: #D2691E;
-    }
-
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Text Comparison</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+<nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <h1>Tools Home</h1>
-        <div class="button-container">
-            <button onclick="redirectToIndex()">Text Compare Tool</button>
-            <button onclick="redirectToIndex2()">CSV Tool</button>
+        <p class="main-heading mx-auto">Text Compare Tool</p>
+    </div>
+</nav>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <h5>Source Text</h5>
+                <textarea id="text1" class="form-control" rows="6"></textarea>
+                <p class="word-count" id="wordCount1">Word Count: 0</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <h5>Comparison Text</h5>
+                <textarea id="text2" class="form-control" rows="6"></textarea>
+                <p class="word-count" id="wordCount2">Word Count: 0</p>
+            </div>
         </div>
     </div>
-    <script>
-    function redirectToIndex() {
-        window.location.href = "index.html";
-    }
-    
-    function redirectToIndex2() {
-        window.location.href = "index2.html";
-    }
-    </script>
+    <div class="row">
+        <div class="col-md-12">
+            <button id="compareBtn" class="btn btn-primary mt-3 btn-block">Compare</button>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <h5 id="a" class="result-title" style="display: none;">Non-Matching words from Source Text</h5>
+            <div id="nonMatching1" class="result-box"></div>
+            <p class="non-matching-count" id="nonMatchingCount1"></p>
+        </div> 
+        <div class="col-md-6">
+            <h5 id="b" class="result-title" style="display: none;">Non-Matching words from Comparison Text</h5>
+            <div id="nonMatching2" class="result-box"></div>
+            <p class="non-matching-count" id="nonMatchingCount2"></p>
+        </div>
+    </div>
+</div>
+<div id="matchingMessage" class="matching-message col-md-12" style="display: none;">
+    <p>Both the values are matching.</p>
+</div>
+<script src="myscript.js"></script>
 </body>
-
 </html>
