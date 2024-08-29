@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Renaming Tool</title>
+    <link rel="stylesheet" href="filerename.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Renaming Tool</h1>
+        <span>Upload Files Folder <input type="file" id="fileInput" multiple webkitdirectory directory></span>
+        <button onclick="renameFiles()">Rename Files From Folder</button>
+        <ul id="fileList"></ul>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>Renaming is done!</p>
+            <button onclick="downloadZip()">Download Renamed Files</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="filerename.js"></script>
+</body>
+</html>
+
