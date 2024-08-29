@@ -5,7 +5,7 @@ function renameFiles() {
     fileList.innerHTML = '';
 
     if (fileInput.files.length === 0) {
-        alert('Please select a folder containing images.');
+        alert('Please select a folder containing files.');
         return;
     }
 
@@ -16,24 +16,30 @@ function renameFiles() {
         let originalName = file.name;
         let newName = originalName
             .toLowerCase()
-            .replace(/\s+/g, '-')    // Replace spaces with hyphens
-            .replace(/_/g, '-')      // Replace underscores with hyphens
-            .replace(/-+/g, '-');    // Replace multiple hyphens with a single hyphen
+            .replace(/\s+/g, '-')    // spaces with hyphens
+            .replace(/_/g, '-')      // underscores with hyphens
+            .replace(/-+/g, '-');    // multiple hyphens with a single hyphen
 
         const li = document.createElement('li');
         li.textContent = `Original: ${originalName} => New: ${newName}`;
         fileList.appendChild(li);
 
-        zip.file(newName, file); // Add the renamed file to the zip
+        zip.file(newName, file); 
     });
 
-    // Once the renaming and zipping is done, show the popup
+    
     popup.style.display = "flex";
 
-    // Save the zip file to trigger download when the user clicks the button
+    
     window.downloadZip = function() {
         zip.generateAsync({ type: "blob" }).then(function(content) {
-            saveAs(content, "renamed_images.zip");
+            saveAs(content, "renamed_files.zip");
+            
+            popup.style.display = "none";
+            location.reload(); 
         });
     };
 }
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
