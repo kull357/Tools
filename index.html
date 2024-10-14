@@ -25,15 +25,22 @@
             color: #333;
         }
 
+        .button-container .col-md-4 {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
         button {
-            padding: 30px 60px;
+            width: 100%;
+            padding: 30px 0;
             font-size: 20px;
             cursor: pointer;
             background-color: #D2386C;
             color: white;
             border: none;
             border-radius: 10px;
-            margin-bottom: 20px; /* Add margin to space the buttons */
+            height: 120px; /* Set a fixed height for uniform button size */
         }
 
         button:hover {
@@ -45,7 +52,7 @@
 <body>
     <div class="container">
         <h1>Tools Home</h1>
-        <div class="row">
+        <div class="row button-container">
             <div class="col-md-4">
                 <button onclick="redirectToIndex()">Text Compare Tool</button>
             </div>
